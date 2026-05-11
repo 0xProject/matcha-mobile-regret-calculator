@@ -59,12 +59,12 @@ function MethodologyTooltip() {
           <div className="flex flex-col gap-3 text-xs text-[#6B6B6B] leading-relaxed">
             <div>
               <span className="text-[#00FF87] font-semibold">Data source</span>
-              <p>All numbers cover the <strong>last 12 months</strong> of on-chain spot swaps only. P&amp;L per token comes from Zerion (realized + unrealized). Positions are grouped by token, not individual trades &mdash; this correctly handles DCA buying and selling in chunks.</p>
+              <p>All numbers cover the <strong>last 12 months</strong> of on-chain spot swaps only. P&amp;L per token is sourced directly from on-chain data (realized + unrealized). Positions are grouped by token, not individual trades &mdash; this correctly handles DCA buying and selling in chunks.</p>
             </div>
 
             <div>
               <span className="text-[#00FF87] font-semibold">Price history</span>
-              <p>For each token position, we fetch daily OHLC candles from Codex covering the period you held it. We use the daily <em>high</em> to check if Take Profit would have triggered.</p>
+              <p>For each token position, we fetch daily price candles covering the period you held it. We use the daily <em>high</em> to check if Take Profit would have triggered.</p>
             </div>
 
             <div>
@@ -81,8 +81,8 @@ function MethodologyTooltip() {
               <span className="text-[#00FF87] font-semibold">Limitations</span>
               <ul className="list-disc list-inside mt-1 flex flex-col gap-1">
                 <li>Daily candles &mdash; intra-day price spikes shorter than 1 day may be missed</li>
-                <li>Max 500 swap events analyzed (last 5 pages from Zerion)</li>
-                <li>Tokens with no price data on Codex are skipped</li>
+                <li>Max 500 swap events analyzed</li>
+                <li>Tokens with no price history data are skipped</li>
                 <li>Simulation assumes instant fill at the TP target &mdash; no slippage or fees</li>
                 <li>Only spot swaps are included &mdash; no perps, lending, or LP positions</li>
               </ul>
