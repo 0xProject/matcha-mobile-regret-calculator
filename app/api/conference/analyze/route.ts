@@ -178,9 +178,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Network/timeout errors from server-side data fetch — give a clear user message
+    // Network/timeout errors from server-side Zerion fetch — give a clear user message
     // rather than leaking the raw "fetch failed" Node.js error string.
-    if (message === 'fetch failed' || message.includes('request failed')) {
+    if (message === 'fetch failed' || message.includes('Zerion request failed')) {
       return NextResponse.json<AnalyzeErrorResponse>(
         { error: 'The analysis is taking longer than expected — please try again in a moment.', code: 'API_ERROR' },
         { status: 503 },
