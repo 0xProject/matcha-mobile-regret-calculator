@@ -29,3 +29,10 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Internal / not for public repo
+prototype/
+docs/research/
+.claude/
+*.png
+*.jpg
