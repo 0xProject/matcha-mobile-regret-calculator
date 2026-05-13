@@ -59,7 +59,7 @@ export function ConferenceResultsView({ result, onReset }: ConferenceResultsView
     return () => cancelAnimationFrame(rafRef.current);
   }, [target]);
 
-  const isZero = result.moneyLeftOnTable === 0;
+  const isZero = result.moneyLeftOnTable < 1; // treat < $1 as effectively zero (avoids "+$0" with TP badge)
   const isProfitable = result.realPnL >= 0;
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://sltp.matcha.xyz/conference';
